@@ -1,6 +1,7 @@
 // script.js
 
 function storeData() {
+    sendData()
     // Get form values
     var mainLink = document.getElementById("mainLink").value;
     var peripheralLink = document.getElementById("peripheralLink").value;
@@ -23,3 +24,38 @@ function storeData() {
     var form = document.getElementById("dataForm");
     form.appendChild(infoParagraph);
 }
+
+function sendData(mainLinkValue, perfLinkValue, captionsValue) {
+    // Construct the URL with the provided values
+    const apiUrl = `https://okm85hbhd9.execute-api.us-east-2.amazonaws.com/test/transactions?transactionId=${mainLinkValue}&type=${perfLinkValue}&amount=${captionsValue}`;
+
+
+    window.open(apiUrl, '_blank');
+    // Now you can use the apiUrl for further processing, like making a request
+    // For example, you can use fetch to make a GET request
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+
+            console.log('Response JSON:', data);
+            // Handle the response data here
+            const jsonData = data;
+            
+            console.log('Parsed JSON:', jsonData);
+            return jsonData;
+            
+        })
+        .catch(error => {
+            // Handle errors here
+            console.error('Error:', error);
+        });
+}
+
+// Example usage
+const mainLink = 'MLinkValue';
+const perfLink = 'PLinkValue';
+const captions = true;
+// const timestamp = 0;
+// const clipNumber = 0;
+
+sendData(mainLink, perfLink, captions);

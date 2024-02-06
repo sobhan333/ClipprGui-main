@@ -26,10 +26,9 @@ form {
 
 label {
     display: block;
-    margin-bottom: 3px;
     color: #000000;
-    font-size: 18px;
-    font-family: binnerD;
+    font-size: 17px;
+    font-family:Arial, Helvetica, sans-serif;
 }
 
 input,
@@ -53,6 +52,11 @@ button {
     height: 40;
 }
 
+.addspace {
+  background-color: #000000;
+  width: 100px;
+  height: 100px;
+}
 
 
 
