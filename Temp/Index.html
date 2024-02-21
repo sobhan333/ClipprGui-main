@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clippr.pro</title>
+    <script src="Mainweb.js"></script>
+    <link rel="stylesheet" href="Styles.css">
+    <style>
+         #logo {
+            display: block;
+            margin: 0 auto;
+            text-align: center;
+            max-width: 300px; /* Adjust the maximum width as needed */
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <button onclick="signin()" class=subbutton>Sign In</button>
+    </header>
+    
+    <img src="Logo.png" alt="Logo" id="logo" class="logo">
+
+    <form id="dataForm">
+        <label for="mainLink">Main Link:</label>
+        <input type="text" id="mainLink" required>
+
+        <label for="peripheralLink">Peripheral Link:</label>
+        <input type="text" id="peripheralLink" required>
+
+        <label for="captionsBool">Captions (Boolean):</label>
+        <select id="captionsBool" required>
+            <option value="true">True</option>
+            <option value="false">False</option>
+        </select>
+
+        <label for="timestamp">Timestamp:</label>
+        <input type="text" id="timestamp" required>
+
+        <label for="numClips">Number of Clips:</label>
+        <input type="number" id="numClips" required>
+        <div class="div1">
+            <button type="button" onclick="storeData()" class="buttondiv">Submit</button>
+            <button type="button" onclick="downloadData()" class="buttondiv">Download</button>
+        </div>
+        
+    </form>
+    <footer>
+        <div id="aboutUsSection" class="aboutus">
+            <h2>About Us</h2>
+            <p>Welcome to Clippr.pro, where innovation meets content creation! At Clippr.pro, we are passionate about simplifying the intricate process of video content creation on YouTube. Our cutting-edge automation tools are designed to empower creators, streamlining the production workflow and unlocking new possibilities. Committed to excellence, we prioritize customer satisfaction above all else. We understand the challenges content creators face, and our mission is to provide seamless solutions that not only meet but exceed your expectations. Join us on this journey as we revolutionize the way you bring your ideas to life on the digital stage. Clippr.pro - Your partner in effortless content creation.</p>
+        </div>
+    </footer>
+    
+</body>
+</html>
