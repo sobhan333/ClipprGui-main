@@ -1,6 +1,11 @@
 // script.js
 
 function storeData() {
+
+    var element = document.getElementById("loader");
+    element.style.display = "block";
+    var Socket = new WebSocket(url, [protocal] );
+
     sendData()
     // Get form values
     var mainLink = document.getElementById("mainLink").value;
@@ -8,21 +13,6 @@ function storeData() {
     var captionsBool = document.getElementById("captionsBool").value;
     var timestamp = document.getElementById("timestamp").value;
     var numClips = document.getElementById("numClips").value;
-
-    // Create a new paragraph element to display the information
-    var infoParagraph = document.createElement("p");
-
-    // Set the text content for the paragraph and set black color
-    infoParagraph.style.color = "#000000";  // Black text color
-    infoParagraph.textContent = "Main Link: " + mainLink +
-                                ", Peripheral Link: " + peripheralLink +
-                                ", Captions: " + captionsBool +
-                                ", Timestamp: " + timestamp +
-                                ", Number of Clips: " + numClips;
-
-    // Append the paragraph to the form
-    var form = document.getElementById("dataForm");
-    form.appendChild(infoParagraph);
 }
 
 function sendData(mainLinkValue, perfLinkValue, captionsValue) {
@@ -50,18 +40,3 @@ function sendData(mainLinkValue, perfLinkValue, captionsValue) {
             console.error('Error:', error);
         });
 }
-
-function signin() {
-    const yt = 'https://www.youtube.com/watch?v=VegDvRLVlOI';
-    window.open(yt, '_blank').focus();
-}
-
-
-// Example usage
-const mainLink = 'MLinkValue';
-const perfLink = 'PLinkValue';
-const captions = true;
-// const timestamp = 0;
-// const clipNumber = 0;
-
-sendData(mainLink, perfLink, captions);

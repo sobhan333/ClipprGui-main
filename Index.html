@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clippr.pro</title>
-    <script src="Mainweb.js"></script>
+    <title>Welcome to Clippr</title>
+    <script src="Test.js"></script>
     <link rel="stylesheet" href="Styles.css">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="1046523553719-ekivb2cakk8vqlvtcdahts8sn7spje0n.apps.googleusercontent.com">
     <style>
-         #logo {
+        #logo {
             display: block;
             margin: 0 auto;
             text-align: center;
@@ -20,7 +22,9 @@
 <body>
 
     <header>
-        <button onclick="signin()" class=subbutton>Sign In</button>
+        <div></div>
+        <button  id="Butt" class=subbutton data-onsuccess="onSignIn">Sign In</button>
+        <button onclick="godark()" class=subbutton>Dark Mode</button>
     </header>
     
     <img src="Logo.png" alt="Logo" id="logo" class="logo">
@@ -32,7 +36,7 @@
         <label for="peripheralLink">Peripheral Link:</label>
         <input type="text" id="peripheralLink" required>
 
-        <label for="captionsBool">Captions (Boolean):</label>
+        <label for="captionsBool">Captions:</label>
         <select id="captionsBool" required>
             <option value="true">True</option>
             <option value="false">False</option>
@@ -44,11 +48,18 @@
         <label for="numClips">Number of Clips:</label>
         <input type="number" id="numClips" required>
         <div class="div1">
-            <button type="button" onclick="storeData()" class="buttondiv">Submit</button>
-            <button type="button" onclick="downloadData()" class="buttondiv">Download</button>
+            <button name="Submit" type="button" onclick="connectsocket()" class="buttondiv">Submit</button>
+            <button name= "download" type="button" onclick="printOutput()" class="buttondiv">Download</button>
         </div>
         
+
+
     </form>
+
+    <div class="loadingio-spinner-spin-pvabg80918o"><div class="ldio-c0gpgiwoyu" id="loader">
+        <div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div>
+        </div></div>
+
     <footer>
         <div id="aboutUsSection" class="aboutus">
             <h2>About Us</h2>
