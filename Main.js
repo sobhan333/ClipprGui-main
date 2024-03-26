@@ -1,27 +1,39 @@
 async function connectsocket() {
   const exampleSocket = new WebSocket("wss://s2zwrp5xhd.execute-api.us-west-2.amazonaws.com/production/");
+  
+  var mainLinkValue = document.getElementById("mainLink").value;
+  var perfLinkValue = document.getElementById("peripheralLink").value;
+  var captionsBoolValue = document.getElementById("captionsBool").checked ? "True" : "False";
+  var timestampValue = parseInt(document.getElementById("timestamp").value);
+  var numClipsValue = parseInt(document.getElementById("numClips").value)
+
+  var message = {
+      "action": "SendMessage",
+      "main_link": mainLinkValue,
+      "peripheral_link": perfLinkValue,
+      "captions": captionsBoolValue,
+      "manual_timestamp": timestampValue,
+      "num_clips": numClipsValue
+  };
+
   showLoader()
   checksocket(exampleSocket)
 
     await new Promise(resolve => setTimeout(resolve, 3000));
-    // exampleSocket.send({action: "SendMessage"});
-    exampleSocket.send(JSON.stringify({action: "SendMessage"}));
+    exampleSocket.send(JSON.stringify(message));
 
     checksocket(exampleSocket)
     exampleSocket.onmessage = (event) => {
-        console.log(event.data);
+        var linkdata = event.data
+        linkdata = linkdata.split('"').join('');
+        var linkElement = document.getElementById("downloadbutton").href = linkdata;
+        // console.log("THis is link data", linkdata)
       };
     
     await new Promise(resolve => setTimeout(resolve, 2000));
     exampleSocket.close()
     hideLoader()
     checksocket(exampleSocket)
-
-
-}
-
-function getlink(exampleSocket){
-  
 }
 
 function checksocket(exampleSocket){
