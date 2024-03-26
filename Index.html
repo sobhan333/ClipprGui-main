@@ -23,11 +23,12 @@
 
     <header>
         <div></div>
-        <button onclick="godark()" class=subbutton>Dark Mode</button>
+        <button onclick="toggleDarkMode()" class=subbutton>Dark Mode</button>
     </header>
     
     <img src="Logo.png" alt="Logo" id="logo" class="logo">
 
+    <div class="loader loader--hidden">Loading</div>
     <form id="dataForm">
         <label for="mainLink">Main Link:</label>
         <input type="text" id="mainLink" required>
@@ -54,7 +55,7 @@
     </form>
     
     <footer>
-        <div id="aboutUsSection" class="aboutus">
+        <div class="aboutus .aboutusdark">
             <h2>About Us</h2>
             <p>Welcome to Clippr.pro, where innovation meets content creation! At Clippr.pro, we are passionate about simplifying the intricate process of video content creation on YouTube. Our cutting-edge automation tools are designed to empower creators, streamlining the production workflow and unlocking new possibilities. Committed to excellence, we prioritize customer satisfaction above all else. We understand the challenges content creators face, and our mission is to provide seamless solutions that not only meet but exceed your expectations. Join us on this journey as we revolutionize the way you bring your ideas to life on the digital stage. Clippr.pro - Your partner in effortless content creation.</p>
         </div>
